@@ -7,7 +7,7 @@ import retrofit2.http.POST
 
 interface apiInterface {
 
-    @POST()
+    @POST("/remove")
     suspend fun postImageUrl(
        @Body post:PostUrl):Response<PostUrl>
 }
