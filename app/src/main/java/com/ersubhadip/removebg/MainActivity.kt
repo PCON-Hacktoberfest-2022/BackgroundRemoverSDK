@@ -2,7 +2,9 @@ package com.ersubhadip.removebg
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
+import com.ersubhadip.removebg.Models.PostUrl
 import com.ersubhadip.removebg.ViewModel.ViewModel
 import com.ersubhadip.removebg.ViewModel.ViewModelFactory
 import com.ersubhadip.removebg.api.ApiRepository
@@ -20,8 +22,9 @@ class MainActivity : AppCompatActivity() {
         //initialization of the viewModel
         val repository = ApiRepository()
         val viewModelFactory = ViewModelFactory(repository)
-        viewModel = ViewModelProvider(this,viewModelFactory).get(ViewModel::class.java)
+        viewModel = ViewModelProvider(this,viewModelFactory)[ViewModel::class.java]
 
+        viewModel.getFinalImage(PostUrl("https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"))
 
 
 
